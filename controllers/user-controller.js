@@ -1,3 +1,4 @@
+const { response } = require("express");
 const { User, Thought } = require("../models");
 
 const userController = {
@@ -80,6 +81,7 @@ const userController = {
             .status(404)
             .json({ message: "No User found with this id!" });
         }
+        res.status(200).json(dbUserData);
       })
       .catch((err) => res.status(500).json(err));
   },

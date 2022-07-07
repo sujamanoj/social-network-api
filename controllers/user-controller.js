@@ -74,7 +74,7 @@ const userController = {
 
   //Delete user and users associated thoughts
   deleteUser({ params }, res) {
-    User.findOneAndDelete({ userId: params.id })
+    User.findOneAndDelete({ _id: params.id }, { new: true })
       .then((dbUserData) => {
         if (!dbUserData) {
           return res
